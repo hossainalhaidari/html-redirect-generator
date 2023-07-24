@@ -1,4 +1,4 @@
-const { mkdirSync, readFileSync, writeFileSync } = require("fs");
+const { mkdirSync, readFileSync, writeFileSync, readdirSync } = require("fs");
 const core = require("@actions/core");
 
 try {
@@ -8,7 +8,15 @@ try {
     const parts = redirect.split(" ");
     const path = parts[0];
     const url = redirect.substring(path.length + 1);
+
     mkdirSync(`html_output${path}`, { recursive: true });
+
+    const filenames = readdirSync("html_output");
+    console.log("\nCurrent directory filenames:");
+    filenames.forEach((file) => {
+      console.log(file);
+    });
+
     writeFileSync(
       `./html_output${path}/index.html`,
       template.replace("#", url)
