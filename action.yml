@@ -1,0 +1,5 @@
+name: 'HTML Redirect Generator'
+description: 'Generate static HTML redirects'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
