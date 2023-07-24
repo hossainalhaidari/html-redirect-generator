@@ -12,9 +12,9 @@ try {
     mkdirSync(`html_output${path}`, { recursive: true });
 
     const filenames = readdirSync("html_output");
-    console.log("\nCurrent directory filenames:");
+    core.info("\nCurrent directory filenames:");
     filenames.forEach((file) => {
-      console.log(file);
+      core.info(file);
     });
 
     writeFileSync(
@@ -22,7 +22,7 @@ try {
       template.replace("#", url)
     );
   });
-  console.log("Done generating HTML redirects.");
+  core.info("Done generating HTML redirects.");
 } catch (error) {
   core.setFailed(error.message);
 }
