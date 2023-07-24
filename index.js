@@ -3,7 +3,7 @@ const core = require("@actions/core");
 
 try {
   const template = `<meta http-equiv="Refresh" content="0; url='#'" />`;
-  const redirects = readFileSync("_redirects", "utf-8").split("\n");
+  const redirects = readFileSync("_redirects", "utf-8").trim().split("\n");
   redirects.forEach((redirect) => {
     const parts = redirect.split(" ");
     const path = parts[0];
