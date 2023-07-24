@@ -1,6 +1,5 @@
-const { readFileSync, writeFileSync } = require("fs");
+const { mkdirSync, readFileSync, writeFileSync } = require("fs");
 const core = require("@actions/core");
-const io = require("@actions/io");
 
 try {
   const template = `<meta http-equiv="Refresh" content="0; url='#'" />`;
@@ -9,9 +8,11 @@ try {
     const parts = redirect.split(" ");
     const path = parts[0];
     const url = redirect.substring(path.length + 1);
-
-    io.mkdirP(`html_output${path}`);
-    writeFileSync(`html_output${path}/index.html`, template.replace("#", url));
+    mkdirSync(`html_output${path}`, { recursive: true });
+    writeFileSync(
+      `./html_output${path}/index.html`,
+      template.replace("#", url)
+    );
   });
   console.log("Done generating HTML redirects.");
 } catch (error) {
