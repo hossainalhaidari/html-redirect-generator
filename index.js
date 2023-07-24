@@ -17,10 +17,16 @@ try {
       core.info(file);
     });
 
-    writeFileSync(
-      `./html_output${path}/index.html`,
-      template.replace("#", url)
+    core.info(
+      `write file: ./html_output${path}/index.html with content: ${template.replace(
+        "#",
+        url
+      )}`
     );
+    // writeFileSync(
+    //   `./html_output${path}/index.html`,
+    //   template.replace("#", url)
+    // );
   });
   core.info("Done generating HTML redirects.");
 } catch (error) {
