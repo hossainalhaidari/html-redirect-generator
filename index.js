@@ -23,10 +23,10 @@ try {
         url
       )}`
     );
-    // writeFileSync(
-    //   `./html_output${path}/index.html`,
-    //   template.replace("#", url)
-    // );
+    writeFileSync(
+      `./html_output${path}/index.html`,
+      template.replace("#", url)
+    );
   });
   core.info("Done generating HTML redirects.");
 } catch (error) {
