@@ -1,6 +1,6 @@
 {
   "name": "html-redirect-generator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate static HTML redirects from a file",
   "author": "Hossain Alhaidari <dev@hossain.al> (https://hossain.al)",
   "homepage": "https://github.com/hossainalhaidari/html-redirect-generator",

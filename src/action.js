@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-const { generate } = require("./generate.js");
+const { generate } = require("./index.js");
 
 try {
   generate("_redirects", "html_output");
