@@ -2703,6 +2703,41 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ 230:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const { existsSync, mkdirSync, readFileSync, writeFileSync } = __nccwpck_require__(147);
+
+const template = `<meta http-equiv="Refresh" content="0; url='#'" />`;
+
+function getRedirects(file) {
+  if (existsSync(file)) {
+    return readFileSync(file, "utf-8").trim().split("\n");
+  }
+  return [];
+}
+
+function createFile(output, name, url) {
+  mkdirSync(`${output}${name}`, { recursive: true });
+  writeFileSync(`${output}${name}/index.html`, template.replace("#", url));
+}
+
+function generate(file, output) {
+  getRedirects(file).forEach((redirect) => {
+    const parts = redirect.split(" ");
+    if (parts.length > 1 && parts[0].startsWith("/")) {
+      const name = parts[0];
+      const url = redirect.substring(name.length + 1);
+      createFile(output, name, url);
+    }
+  });
+}
+
+module.exports = { generate };
+
+
+/***/ }),
+
 /***/ 491:
 /***/ ((module) => {
 
@@ -2832,22 +2867,11 @@ module.exports = require("util");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const { mkdirSync, readFileSync, writeFileSync } = __nccwpck_require__(147);
 const core = __nccwpck_require__(733);
+const { generate } = __nccwpck_require__(230);
 
 try {
-  const template = `<meta http-equiv="Refresh" content="0; url='#'" />`;
-  const redirects = readFileSync("_redirects", "utf-8").trim().split("\n");
-  redirects.forEach((redirect) => {
-    const parts = redirect.split(" ");
-    const path = parts[0];
-    const url = redirect.substring(path.length + 1);
-    mkdirSync(`html_output${path}`, { recursive: true });
-    writeFileSync(
-      `./html_output${path}/index.html`,
-      template.replace("#", url)
-    );
-  });
+  generate("_redirects", "html_output");
   console.log("Done generating HTML redirects.");
 } catch (error) {
   core.setFailed(error.message);

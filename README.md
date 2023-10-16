@@ -1,6 +1,6 @@
 # HTML Redirect Generator
 
-A GitHub action to generate static HTML redirects
+A CLI tool and GitHub action to generate static HTML redirects
 
 ## Usage
 
@@ -13,6 +13,8 @@ A GitHub action to generate static HTML redirects
 ```
 
 - Use the `hossainalhaidari/html-redirect-generator@main` action in your workflow
+- Or use the CLI to generate it: `npx html-redirect-generator`
+- Files will be available under `html_output` folder
 
 An example workflow would be something like this:
 

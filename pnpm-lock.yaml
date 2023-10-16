@@ -4,10 +4,8 @@ specifiers:
   '@actions/core': ^1.10.0
   '@vercel/ncc': ^0.36.1
 
-dependencies:
-  '@actions/core': 1.10.0
-
 devDependencies:
+  '@actions/core': 1.10.0
   '@vercel/ncc': 0.36.1
 
 packages:
@@ -17,13 +15,13 @@ packages:
     dependencies:
       '@actions/http-client': 2.1.0
       uuid: 8.3.2
-    dev: false
+    dev: true
 
   /@actions/http-client/2.1.0:
     resolution: {integrity: sha512-BonhODnXr3amchh4qkmjPMUO8mFi/zLaaCeCAJZqch8iQqyDnVIkySjB38VHAC8IJ+bnlgfOqlhpyCUZHlQsqw==}
     dependencies:
       tunnel: 0.0.6
-    dev: false
+    dev: true
 
   /@vercel/ncc/0.36.1:
     resolution: {integrity: sha512-S4cL7Taa9yb5qbv+6wLgiKVZ03Qfkc4jGRuiUQMQ8HGBD5pcNRnHeYM33zBvJE4/zJGjJJ8GScB+WmTsn9mORw==}
@@ -33,9 +31,9 @@ packages:
   /tunnel/0.0.6:
     resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
     engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
-    dev: false
+    dev: true
 
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
-    dev: false
+    dev: true
